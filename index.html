@@ -3,174 +3,137 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maddah e Nabi | Editor & Web Developer</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<title>Maddah e Nabi | Portfolio</title>
 
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
-}
-body{
-background:#0b0b0b;
-color:#fff;
-}
-header{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:linear-gradient(135deg,#000,#1a1a1a);
-padding:20px;
-}
-h1{
-font-size:60px;
-color:#FFD700;
-}
-h2{
-margin-top:15px;
-font-weight:300;
-}
-.btn{
-margin-top:30px;
-padding:15px 35px;
-background:#FFD700;
-color:#000;
-text-decoration:none;
-border-radius:50px;
-font-weight:bold;
-transition:.3s;
-}
-.btn:hover{
-transform:scale(1.08);
-box-shadow:0 0 20px gold;
-}
-section{
-padding:80px 10%;
-}
-.title{
-text-align:center;
-font-size:35px;
-margin-bottom:40px;
-color:#FFD700;
-}
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-gap:25px;
-}
-.card{
-background:#151515;
-padding:25px;
-border-radius:18px;
-border:1px solid #333;
-transition:.3s;
-}
-.card:hover{
-transform:translateY(-8px);
-border-color:#FFD700;
-box-shadow:0 0 20px rgba(255,215,0,.3);
-}
-.card h3{
-color:#FFD700;
-margin-bottom:10px;
-}
-.contact a{
-color:#FFD700;
-text-decoration:none;
-}
-footer{
-background:#111;
-text-align:center;
-padding:25px;
-margin-top:40px;
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<header>
+<header class="hero">
+
+<div class="overlay"></div>
+
+<div class="hero-content">
+
+<img src="logo.png" class="logo" alt="Logo">
+
 <h1>Maddah e Nabi</h1>
+
 <h2>Editor • UI/UX Designer • Web Developer</h2>
 
-<a href="#contact" class="btn">Contact Me</a>
+<div class="hero-buttons">
+
+<a href="#services" class="btn">My Services</a>
+
+<a href="#contact" class="btn btn2">Contact Me</a>
+
+</div>
+
+</div>
+
 </header>
 
-<section>
-<h2 class="title">My Services</h2>
+<section id="about">
+
+<h2 class="section-title">About Me</h2>
+
+<div class="card">
+
+<p>
+I create premium websites, Islamic graphics,
+professional video editing, thumbnails,
+branding and modern digital experiences with
+high-quality design.
+</p>
+
+</div>
+
+</section>
+
+<section id="services">
+
+<h2 class="section-title">My Services</h2>
 
 <div class="grid">
 
-<div class="card">
+<div class="service">
 <h3>Video Editing</h3>
-<p>Professional Cinematic Video Editing.</p>
+<p>Professional Cinematic Editing</p>
 </div>
 
-<div class="card">
+<div class="service">
 <h3>Graphic Design</h3>
-<p>Islamic Posters, Thumbnails & Branding.</p>
+<p>Islamic Posters & Thumbnails</p>
 </div>
 
-<div class="card">
+<div class="service">
 <h3>Web Development</h3>
-<p>Responsive HTML, CSS & JavaScript Websites.</p>
+<p>Responsive HTML CSS JavaScript Websites</p>
 </div>
 
-<div class="card">
+<div class="service">
 <h3>UI / UX Design</h3>
-<p>Modern Premium Website Interfaces.</p>
+<p>Modern Luxury Website Design</p>
 </div>
 
 </div>
 
 </section>
 
-<section>
-<h2 class="title">About Me</h2>
+<section id="portfolio">
 
-<div class="card">
-<p>
-I create premium websites, Islamic graphic designs,
-professional video editing, thumbnails and modern digital experiences.
-</p>
+<h2 class="section-title">Portfolio</h2>
+
+<div class="grid">
+
+<div class="portfolio-box">
+Project 1
+</div>
+
+<div class="portfolio-box">
+Project 2
+</div>
+
+<div class="portfolio-box">
+Project 3
+</div>
+
 </div>
 
 </section>
 
 <section id="contact">
 
-<h2 class="title">Contact Me</h2>
+<h2 class="section-title">Contact</h2>
 
-<div class="card contact">
+<div class="card">
 
-<p><strong>📱 WhatsApp</strong><br>
+<p>📱 WhatsApp</p>
+
 <a href="https://wa.me/919875253057">
 +91 98752 53057
 </a>
-</p>
 
-<br>
+<br><br>
 
-<p><strong>📷 Instagram</strong><br>
+<p>📷 Instagram</p>
+
 <a href="https://instagram.com/maddah_e_nabi_">
 @maddah_e_nabi_
 </a>
-</p>
 
-<br>
+<br><br>
 
-<p><strong>📧 Email</strong><br>
+<p>📧 Email</p>
+
 <a href="mailto:tasdikraza.azhari@gmail.com">
 tasdikraza.azhari@gmail.com
 </a>
-</p>
 
 </div>
 
@@ -178,9 +141,13 @@ tasdikraza.azhari@gmail.com
 
 <footer>
 
-© 2026 Maddah e Nabi • Editor & Web Developer
+<p>
+© 2026 Maddah e Nabi | All Rights Reserved
+</p>
 
 </footer>
+
+<script src="script.js"></script>
 
 </body>
 </html>
