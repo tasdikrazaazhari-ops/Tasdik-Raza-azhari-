@@ -1,364 +1,382 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MADDah e NABI • Editor & Web Developer</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MADDah e NABI | Portfolio</title>
+    <style>
+        /* Base Setup & Colors */
+        :root {
+            --bg-color: #0d0d0d;
+            --card-bg: #1a1a1a;
+            --accent-yellow: #ffcc00;
+            --text-main: #ffffff;
+            --text-muted: #aaaaaa;
+            --border-glow: rgba(255, 204, 0, 0.2);
+        }
 
-    :root {
-      --yellow: #FFD700;
-      --gold: #FFAA00;
-      --dark: #0A0A0A;
-      --navy: #1A0033;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 10px;
+        }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #0A0A0A 0%, #1A0033 100%);
-      color: white;
-      min-height: 100vh;
-      overflow-x: hidden;
-      position: relative;
-    }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 10px;
+        }
 
-    /* Background Particles */
-    .particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 1;
-      opacity: 0.15;
-    }
+        /* Hero Section */
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(145deg, #151515, #1e1e1e);
+            border: 1px solid var(--accent-yellow);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px var(--border-glow);
+            margin-bottom: 40px;
+        }
 
-    .header {
-      text-align: center;
-      padding: 40px 20px 20px;
-      position: relative;
-      z-index: 2;
-    }
+        header h1 {
+            font-size: 2.5rem;
+            color: var(--accent-yellow);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
 
-    .logo-box {
-      display: inline-block;
-      border: 3px solid var(--yellow);
-      padding: 25px 40px;
-      border-radius: 20px;
-      background: rgba(0, 0, 0, 0.8);
-      box-shadow: 0 0 40px rgba(255, 215, 0, 0.4);
-      animation: glow 2s infinite alternate;
-    }
+        header h2 {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
 
-    @keyframes glow {
-      from { box-shadow: 0 0 30px rgba(255, 215, 0, 0.3); }
-      to { box-shadow: 0 0 60px rgba(255, 215, 0, 0.6); }
-    }
+        header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
 
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.2rem;
-      color: var(--yellow);
-      margin-bottom: 8px;
-      text-shadow: 0 0 20px var(--gold);
-    }
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
 
-    .tagline {
-      font-size: 1.3rem;
-      color: #ccc;
-      margin-bottom: 20px;
-    }
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
 
-    .btn-group {
-      margin-top: 25px;
-    }
+        .btn-primary {
+            background-color: var(--accent-yellow);
+            color: #000;
+        }
 
-    .btn {
-      display: inline-block;
-      padding: 14px 32px;
-      margin: 0 10px;
-      border-radius: 50px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.4s ease;
-      font-size: 1.1rem;
-    }
+        .btn-primary:hover {
+            background-color: #e6b800;
+            transform: translateY(-2px);
+        }
 
-    .btn-hire {
-      background: var(--yellow);
-      color: #000;
-      box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
-    }
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--accent-yellow);
+            border: 2px solid var(--accent-yellow);
+        }
 
-    .btn-hire:hover {
-      transform: translateY(-5px) scale(1.05);
-      box-shadow: 0 15px 30px rgba(255, 215, 0, 0.6);
-    }
+        .btn-secondary:hover {
+            background-color: rgba(255, 204, 0, 0.1);
+            transform: translateY(-2px);
+        }
 
-    .btn-portfolio {
-      border: 2px solid var(--yellow);
-      color: var(--yellow);
-    }
+        /* Section Headings */
+        section {
+            margin-bottom: 50px;
+        }
 
-    .btn-portfolio:hover {
-      background: var(--yellow);
-      color: #000;
-    }
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            color: var(--accent-yellow);
+            margin-bottom: 30px;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-    .section {
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 2;
-    }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-yellow);
+            margin: 8px auto 0 auto;
+            border-radius: 2px;
+        }
 
-    .services {
-      background: rgba(255, 215, 0, 0.08);
-      border-radius: 30px;
-      padding: 50px 30px;
-    }
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+        }
 
-    .services h2 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 40px;
-      color: var(--yellow);
-    }
+        .service-card {
+            background-color: var(--card-bg);
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 20px 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
 
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
+        .service-card:hover {
+            border-color: var(--accent-yellow);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(255, 204, 0, 0.1);
+        }
 
-    .service-card {
-      background: rgba(0, 0, 0, 0.7);
-      padding: 25px;
-      border-radius: 18px;
-      border: 1px solid rgba(255, 215, 0, 0.2);
-      transition: all 0.4s ease;
-    }
+        .service-icon {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            display: block;
+        }
 
-    .service-card:hover {
-      transform: translateY(-12px);
-      border-color: var(--yellow);
-      box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
-    }
+        .service-card h3 {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            font-weight: 600;
+        }
 
-    .why-choose {
-      background: transparent;
-    }
+        /* Why Choose Me List */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
 
-    .why-choose h2 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 40px;
-      color: var(--yellow);
-    }
+        .feature-item {
+            background-color: var(--card-bg);
+            border-left: 4px solid var(--accent-yellow);
+            padding: 15px 20px;
+            border-radius: 0 12px 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+        }
 
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
-    }
+        .feature-item span {
+            color: var(--accent-yellow);
+            font-size: 1.2rem;
+        }
 
-    .why-item {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      background: rgba(255, 215, 0, 0.1);
-      padding: 18px 25px;
-      border-radius: 15px;
-      transition: all 0.3s;
-    }
+        /* Contact Links */
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 450px;
+            margin: 0 auto;
+        }
 
-    .why-item:hover {
-      background: rgba(255, 215, 0, 0.25);
-      transform: scale(1.03);
-    }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            background-color: var(--card-bg);
+            border: 1px solid #2a2a2a;
+            padding: 15px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.3s ease;
+        }
 
-    .contact {
-      text-align: center;
-      background: rgba(0, 0, 0, 0.8);
-      padding: 60px 30px;
-      border-radius: 30px;
-    }
+        .contact-item:hover {
+            border-color: var(--accent-yellow);
+            background-color: rgba(255, 204, 0, 0.05);
+            transform: translateX(5px);
+        }
 
-    .contact h2 {
-      color: var(--yellow);
-      margin-bottom: 30px;
-    }
+        .contact-icon {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            width: 30px;
+            text-align: center;
+        }
 
-    .contact-info {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 40px;
-      margin-top: 30px;
-    }
+        .contact-info h4 {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
 
-    .contact-item {
-      font-size: 1.2rem;
-    }
+        .contact-info p {
+            font-size: 1rem;
+            font-weight: 600;
+        }
 
-    .contact-item a {
-      color: var(--yellow);
-      text-decoration: none;
-      transition: 0.3s;
-    }
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 10px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid #2a2a2a;
+            margin-top: 20px;
+        }
 
-    .contact-item a:hover {
-      color: white;
-      text-decoration: underline;
-    }
+        footer span {
+            color: var(--accent-yellow);
+        }
 
-    footer {
-      text-align: center;
-      padding: 30px;
-      color: #666;
-      font-size: 1rem;
-    }
-
-    /* Animations */
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(50px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .animate {
-      animation: fadeInUp 0.8s ease forwards;
-    }
-
-    .service-card, .why-item {
-      opacity: 0;
-    }
-  </style>
+        /* Mobile Optimization tweaks */
+        @media (max-width: 480px) {
+            header h1 { font-size: 2rem; }
+            .btn-group { flex-direction: column; width: 100%; }
+            .btn { width: 100%; text-align: center; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
 </head>
 <body>
 
-  <div class="particles" id="particles"></div>
+    <div class="container">
 
-  <!-- Header -->
-  <div class="header">
-    <div class="logo-box">
-      <h1>MADDah e NABI</h1>
-      <p class="tagline">Editor • Web Developer</p>
-      <p style="color:#ddd; font-size:1.1rem;">Professional Websites & Creative Design</p>
-      
-      <div class="btn-group">
-        <a href="#" class="btn btn-hire">Hire Me</a>
-        <a href="#" class="btn btn-portfolio">View Portfolio</a>
-      </div>
+        <!-- Header Section -->
+        <header>
+            <h1>MADDah e NABI</h1>
+            <h2>Editor • Web Developer</h2>
+            <p>Professional Websites & Creative Design</p>
+            <div class="btn-group">
+                <a href="https://wa.me/919875253057" class="btn btn-primary" target="_blank">Hire Me</a>
+                <a href="#portfolio" class="btn btn-secondary">View Portfolio</a>
+            </div>
+        </header>
+
+        <!-- Services Section -->
+        <section id="services">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <span class="service-icon">🎬</span>
+                    <h3>Video Editing</h3>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">🌐</span>
+                    <h3>Web Dev</h3>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">🎨</span>
+                    <h3>Graphic Design</h3>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">🖼️</span>
+                    <h3>Poster Design</h3>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">📺</span>
+                    <h3>Thumbnails</h3>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">🏷️</span>
+                    <h3>Logo Design</h3>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">✨</span>
+                    <h3>Motion Graphics</h3>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">🎞️</span>
+                    <h3>Animations</h3>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">📱</span>
+                    <h3>Social Posts</h3>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">🕌</span>
+                    <h3>Islamic Posters</h3>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">📝</span>
+                    <h3>Banner Design</h3>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">💻</span>
+                    <h3>Core Dev</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Me Section -->
+        <section id="why-choose-me">
+            <h2 class="section-title">Why Choose Me?</h2>
+            <div class="features-grid">
+                <div class="feature-item"><span>✔</span> Premium Design</div>
+                <div class="feature-item"><span>✔</span> Fast Delivery</div>
+                <div class="feature-item"><span>✔</span> Mobile Friendly</div>
+                <div class="feature-item"><span>✔</span> 24×7 Support</div>
+                <div class="feature-item"><span>✔</span> Creative UI</div>
+                <div class="feature-item"><span>✔</span> Responsive Web</div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="contact-list">
+                <!-- WhatsApp Link -->
+                <a href="https://wa.me/919875253057" class="contact-item" target="_blank">
+                    <span class="contact-icon">📱</span>
+                    <div class="contact-info">
+                        <h4>WhatsApp</h4>
+                        <p>+91 98752 53057</p>
+                    </div>
+                </a>
+                <!-- Instagram Link -->
+                <a href="https://instagram.com/maddah_e_nabi_" class="contact-item" target="_blank">
+                    <span class="contact-icon">📷</span>
+                    <div class="contact-info">
+                        <h4>Instagram</h4>
+                        <p>@maddah_e_nabi_</p>
+                    </div>
+                </a>
+                <!-- Email Link -->
+                <a href="mailto:tasdikraza.azhari@gmail.com" class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <div class="contact-info">
+                        <h4>Email</h4>
+                        <p>tasdikraza.azhari@gmail.com</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer>
+            <p>&copy; 2026 <span>Maddah e Nabi</span> | Editor & Web Developer</p>
+        </footer>
+
     </div>
-  </div>
 
-  <!-- Services -->
-  <div class="section services">
-    <h2 class="animate">OUR SERVICES</h2>
-    <div class="services-grid">
-      <div class="service-card animate">🎬 Professional Video Editing</div>
-      <div class="service-card animate">🌐 Website Development</div>
-      <div class="service-card animate">🎨 Graphic Designing</div>
-      <div class="service-card animate">🖼️ Poster Design</div>
-      <div class="service-card animate">📺 YouTube Thumbnail Design</div>
-      <div class="service-card animate">🏷️ Logo Design</div>
-      <div class="service-card animate">✨ Motion Graphics</div>
-      <div class="service-card animate">🎞️ Intro & Outro Animation</div>
-      <div class="service-card animate">📱 Social Media Post Design</div>
-      <div class="service-card animate">🕌 Islamic Poster Design</div>
-      <div class="service-card animate">📝 Banner & Flex Design</div>
-      <div class="service-card animate">💻 HTML • CSS • JavaScript</div>
-    </div>
-  </div>
-
-  <!-- Why Choose Me -->
-  <div class="section why-choose">
-    <h2 class="animate">WHY CHOOSE ME?</h2>
-    <div class="why-grid">
-      <div class="why-item animate">✔ Premium Design</div>
-      <div class="why-item animate">✔ Fast Delivery</div>
-      <div class="why-item animate">✔ Mobile Friendly</div>
-      <div class="why-item animate">✔ 24×7 Support</div>
-      <div class="why-item animate">✔ Creative & Modern UI</div>
-      <div class="why-item animate">✔ Responsive Website</div>
-    </div>
-  </div>
-
-  <!-- Contact -->
-  <div class="section contact">
-    <h2 class="animate">CONTACT ME</h2>
-    <div class="contact-info">
-      <div class="contact-item">
-        📱 WhatsApp<br>
-        <a href="https://wa.me/919875253057" target="_blank">+91 98752 53057</a>
-      </div>
-      <div class="contact-item">
-        📷 Instagram<br>
-        <a href="https://instagram.com/maddah_e_nabi_" target="_blank">@maddah_e_nabi_</a>
-      </div>
-      <div class="contact-item">
-        📧 Email<br>
-        <a href="mailto:tasdikraza.azhari@gmail.com">tasdikraza.azhari@gmail.com</a>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    © 2026 Maddah e Nabi • Editor & Web Developer
-  </footer>
-
-  <script>
-    // Simple particle background
-    function createParticles() {
-      const container = document.getElementById('particles');
-      for (let i = 0; i < 80; i++) {
-        const particle = document.createElement('div');
-        particle.style.position = 'absolute';
-        particle.style.width = Math.random() * 5 + 'px';
-        particle.style.height = particle.style.width;
-        particle.style.background = '#FFD700';
-        particle.style.borderRadius = '50%';
-        particle.style.left = Math.random() * 100 + 'vw';
-        particle.style.top = Math.random() * 100 + 'vh';
-        particle.style.opacity = Math.random() * 0.6 + 0.2;
-        particle.style.animation = `float ${Math.random() * 15 + 10}s linear infinite`;
-        container.appendChild(particle);
-      }
-    }
-
-    // Add floating animation
-    const style = document.createElement('style');
-    style.innerHTML = `
-      @keyframes float {
-        0% { transform: translateY(0) rotate(0deg); }
-        100% { transform: translateY(-100vh) rotate(360deg); }
-      }
-    `;
-    document.head.appendChild(style);
-
-    // Trigger animations on scroll
-    function animateOnScroll() {
-      const elements = document.querySelectorAll('.animate');
-      elements.forEach((el, index) => {
-        setTimeout(() => {
-          el.style.opacity = '1';
-        }, index * 100);
-      });
-    }
-
-    window.onload = () => {
-      createParticles();
-      animateOnScroll();
-    };
-  </script>
 </body>
 </html>
