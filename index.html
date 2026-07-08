@@ -1,149 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tasdik Raza Azhari</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: #0d0d0d;
-      color: #f5f5f5;
-    }
-    header {
-      background: linear-gradient(135deg, #111, #222);
-      color: #ffcc00;
-      text-align: center;
-      padding: 40px 20px;
-      border-bottom: 3px solid #ffcc00;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 36px;
-      text-transform: uppercase;
-    }
-    nav {
-      background: #000;
-      text-align: center;
-      padding: 12px;
-      border-bottom: 2px solid #ffcc00;
-    }
-    nav a {
-      color: #ffcc00;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-    nav a:hover {
-      color: white;
-    }
-    section {
-      padding: 50px 20px;
-      text-align: center;
-    }
-    section h2 {
-      color: #ffcc00;
-      font-size: 28px;
-      margin-bottom: 15px;
-    }
-    .service-box {
-      display: inline-block;
-      width: 250px;
-      margin: 20px;
-      padding: 20px;
-      background: #1a1a1a;
-      border: 2px solid #ffcc00;
-      border-radius: 12px;
-      box-shadow: 0px 4px 10px rgba(255,204,0,0.4);
-    }
-    .service-box h3 {
-      color: #ffcc00;
-      margin-bottom: 10px;
-    }
-    .portfolio video, .portfolio img {
-      width: 300px;
-      margin: 15px;
-      border: 2px solid #ffcc00;
-      border-radius: 10px;
-    }
-    footer {
-      background: #000;
-      color: #ffcc00;
-      text-align: center;
-      padding: 15px;
-      border-top: 2px solid #ffcc00;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maddah e Nabi | Editor & Web Developer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+body{
+background:#0b0b0b;
+color:#fff;
+}
+header{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(135deg,#000,#1a1a1a);
+padding:20px;
+}
+h1{
+font-size:60px;
+color:#FFD700;
+}
+h2{
+margin-top:15px;
+font-weight:300;
+}
+.btn{
+margin-top:30px;
+padding:15px 35px;
+background:#FFD700;
+color:#000;
+text-decoration:none;
+border-radius:50px;
+font-weight:bold;
+transition:.3s;
+}
+.btn:hover{
+transform:scale(1.08);
+box-shadow:0 0 20px gold;
+}
+section{
+padding:80px 10%;
+}
+.title{
+text-align:center;
+font-size:35px;
+margin-bottom:40px;
+color:#FFD700;
+}
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:25px;
+}
+.card{
+background:#151515;
+padding:25px;
+border-radius:18px;
+border:1px solid #333;
+transition:.3s;
+}
+.card:hover{
+transform:translateY(-8px);
+border-color:#FFD700;
+box-shadow:0 0 20px rgba(255,215,0,.3);
+}
+.card h3{
+color:#FFD700;
+margin-bottom:10px;
+}
+.contact a{
+color:#FFD700;
+text-decoration:none;
+}
+footer{
+background:#111;
+text-align:center;
+padding:25px;
+margin-top:40px;
+}
+</style>
 </head>
+
 <body>
 
-  <!-- Header -->
-  <header>
-    <h1>Tasdik Editing Studio</h1>
-    <p>Video Editing | Ad Design | Motion Graphics</p>
-  </header>
+<header>
+<h1>Maddah e Nabi</h1>
+<h2>Editor • UI/UX Designer • Web Developer</h2>
 
-  <!-- Navigation -->
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<a href="#contact" class="btn">Contact Me</a>
+</header>
 
-  <!-- Home Section -->
-  <section id="home">
-    <h2>Welcome</h2>
-    <p>We create stunning video edits and creative ad designs to make your brand stand out.</p>
-  </section>
+<section>
+<h2 class="title">My Services</h2>
 
-  <!-- About Section -->
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I am a professional video editor & designer with experience in making ads, reels, and creative visuals that engage audiences.</p>
-  </section>
+<div class="grid">
 
-  <!-- Services Section -->
-  <section id="services">
-    <h2>Services</h2>
-    <div class="service-box">
-      <h3>Video Editing</h3>
-      <p>Professional editing for ads, reels, weddings, and events.</p>
-    </div>
-    <div class="service-box">
-      <h3>Ad Design</h3>
-      <p>Creative ads for businesses and social media campaigns.</p>
-    </div>
-    <div class="service-box">
-      <h3>Motion Graphics</h3>
-      <p>Animated visuals that bring your ideas to life.</p>
-    </div>
-  </section>
+<div class="card">
+<h3>Video Editing</h3>
+<p>Professional Cinematic Video Editing.</p>
+</div>
 
-  <!-- Portfolio Section -->
-  <section id="portfolio" class="portfolio">
-    <h2>Portfolio</h2>
-    <video controls>
-      <source src="sample-video.mp4" type="video/mp4">
-    </video>
-    <img src="sample-design.jpg" alt="Design Work">
-  </section>
+<div class="card">
+<h3>Graphic Design</h3>
+<p>Islamic Posters, Thumbnails & Branding.</p>
+</div>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: tasdikraza.azhari@gmail.com</p>
-    <p>Phone: +91 9875253057</p>
-    <p>WhatsApp: <a href="https://wa.me/919875253057" style="color:#ffcc00;">Chat Now</a></p>
-  </section>
+<div class="card">
+<h3>Web Development</h3>
+<p>Responsive HTML, CSS & JavaScript Websites.</p>
+</div>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Tasdik azhari.com. All rights reserved.</p>
-  </footer>
+<div class="card">
+<h3>UI / UX Design</h3>
+<p>Modern Premium Website Interfaces.</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+<h2 class="title">About Me</h2>
+
+<div class="card">
+<p>
+I create premium websites, Islamic graphic designs,
+professional video editing, thumbnails and modern digital experiences.
+</p>
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2 class="title">Contact Me</h2>
+
+<div class="card contact">
+
+<p><strong>📱 WhatsApp</strong><br>
+<a href="https://wa.me/919875253057">
++91 98752 53057
+</a>
+</p>
+
+<br>
+
+<p><strong>📷 Instagram</strong><br>
+<a href="https://instagram.com/maddah_e_nabi_">
+@maddah_e_nabi_
+</a>
+</p>
+
+<br>
+
+<p><strong>📧 Email</strong><br>
+<a href="mailto:tasdikraza.azhari@gmail.com">
+tasdikraza.azhari@gmail.com
+</a>
+</p>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 Maddah e Nabi • Editor & Web Developer
+
+</footer>
 
 </body>
 </html>
