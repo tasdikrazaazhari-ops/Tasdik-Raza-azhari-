@@ -9,178 +9,261 @@
 
 <style>
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
 }
 body{
-background:#0b0b0b;
-color:#fff;
+    background:#0b0b0b;
+    color:#fff;
+    overflow-x:hidden;
 }
+
+/* Particle Background */
+#particles {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Hero */
 header{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:linear-gradient(135deg,#000,#1a1a1a);
-padding:20px;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:linear-gradient(135deg,#000,#1a1a1a);
+    position:relative;
+    overflow:hidden;
 }
+
+/* Logo Background */
+header::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 520px;
+    height: 520px;
+    background: url('https://i.ibb.co/KXJqY8Z/maddah-logo.png') center/contain no-repeat;
+    opacity: 0.12;
+    z-index: 0;
+    animation: slowRotate 60s linear infinite;
+}
+
+@keyframes slowRotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
 h1{
-font-size:60px;
-color:#FFD700;
+    font-size:70px;
+    color:#FFD700;
+    text-shadow: 0 0 40px rgba(255,215,0,0.6);
+    animation: glow 2s ease-in-out infinite alternate;
+    position: relative;
+    z-index: 2;
+}
+@keyframes glow {
+    from { text-shadow: 0 0 20px rgba(255,215,0,0.6); }
+    to { text-shadow: 0 0 50px rgba(255,215,0,0.9); }
 }
 h2{
-margin-top:15px;
-font-weight:300;
+    margin-top:15px;
+    font-weight:300;
+    font-size:1.4rem;
+    position: relative;
+    z-index: 2;
 }
 .btn{
-margin-top:30px;
-padding:15px 35px;
-background:#FFD700;
-color:#000;
-text-decoration:none;
-border-radius:50px;
-font-weight:bold;
-transition:.3s;
+    margin-top:30px;
+    padding:15px 35px;
+    background:#FFD700;
+    color:#000;
+    text-decoration:none;
+    border-radius:50px;
+    font-weight:bold;
+    transition:.4s;
+    box-shadow:0 0 25px gold;
+    position: relative;
+    z-index: 2;
 }
 .btn:hover{
-transform:scale(1.08);
-box-shadow:0 0 20px gold;
+    transform:scale(1.1) translateY(-5px);
+    box-shadow:0 0 40px gold;
 }
+
+/* Rest of styles */
 section{
-padding:80px 10%;
+    padding:100px 10%;
+    position:relative;
 }
 .title{
-text-align:center;
-font-size:35px;
-margin-bottom:40px;
-color:#FFD700;
+    text-align:center;
+    font-size:38px;
+    margin-bottom:50px;
+    color:#FFD700;
 }
 .grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-gap:25px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
 }
 .card{
-background:#151515;
-padding:25px;
-border-radius:18px;
-border:1px solid #333;
-transition:.3s;
+    background:#151515;
+    padding:30px;
+    border-radius:20px;
+    border:1px solid #333;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 .card:hover{
-transform:translateY(-8px);
-border-color:#FFD700;
-box-shadow:0 0 20px rgba(255,215,0,.3);
+    transform: perspective(1000px) rotateX(15deg) rotateY(15deg) translateY(-15px);
+    border-color:#FFD700;
+    box-shadow:0 0 40px rgba(255,215,0,0.4);
 }
 .card h3{
-color:#FFD700;
-margin-bottom:10px;
+    color:#FFD700;
+    margin-bottom:15px;
 }
 .contact a{
-color:#FFD700;
-text-decoration:none;
+    color:#FFD700;
+    text-decoration:none;
+}
+.contact a:hover{
+    text-decoration:underline;
 }
 footer{
-background:#111;
-text-align:center;
-padding:25px;
-margin-top:40px;
+    background:#111;
+    text-align:center;
+    padding:30px;
+    margin-top:40px;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-<h1>Maddah e Nabi</h1>
-<h2>Editor • UI/UX Designer • Web Developer</h2>
+<!-- Particle Canvas -->
+<canvas id="particles"></canvas>
 
-<a href="#contact" class="btn">Contact Me</a>
+<header>
+    <h1>Maddah e Nabi</h1>
+    <h2>Editor • UI/UX Designer • Web Developer</h2>
+    <a href="#contact" class="btn">Contact Me</a>
 </header>
 
 <section>
-<h2 class="title">My Services</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>Video Editing</h3>
-<p>Professional Cinematic Video Editing.</p>
-</div>
-
-<div class="card">
-<h3>Graphic Design</h3>
-<p>Islamic Posters, Thumbnails & Branding.</p>
-</div>
-
-<div class="card">
-<h3>Web Development</h3>
-<p>Responsive HTML, CSS & JavaScript Websites.</p>
-</div>
-
-<div class="card">
-<h3>UI / UX Design</h3>
-<p>Modern Premium Website Interfaces.</p>
-</div>
-
-</div>
-
+    <h2 class="title">My Services</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>🎥 Video Editing</h3>
+            <p>Professional Cinematic Video Editing.</p>
+        </div>
+        <div class="card">
+            <h3>🎨 Graphic Design</h3>
+            <p>Islamic Posters, Thumbnails & Branding.</p>
+        </div>
+        <div class="card">
+            <h3>🌐 Web Development</h3>
+            <p>Responsive HTML, CSS & JavaScript Websites.</p>
+        </div>
+        <div class="card">
+            <h3>📱 UI / UX Design</h3>
+            <p>Modern Premium Website Interfaces.</p>
+        </div>
+    </div>
 </section>
 
 <section>
-<h2 class="title">About Me</h2>
-
-<div class="card">
-<p>
-I create premium websites, Islamic graphic designs,
-professional video editing, thumbnails and modern digital experiences.
-</p>
-</div>
-
+    <h2 class="title">About Me</h2>
+    <div class="card" style="max-width:800px; margin:0 auto; text-align:center;">
+        <p style="font-size:1.1rem; line-height:1.8;">
+            I create premium websites, Islamic graphic designs, professional video editing, 
+            thumbnails and modern digital experiences with passion and creativity.
+        </p>
+    </div>
 </section>
 
 <section id="contact">
-
-<h2 class="title">Contact Me</h2>
-
-<div class="card contact">
-
-<p><strong>📱 WhatsApp</strong><br>
-<a href="https://wa.me/919875253057">
-+91 98752 53057
-</a>
-</p>
-
-<br>
-
-<p><strong>📷 Instagram</strong><br>
-<a href="https://instagram.com/maddah_e_nabi_">
-@maddah_e_nabi_
-</a>
-</p>
-
-<br>
-
-<p><strong>📧 Email</strong><br>
-<a href="mailto:tasdikraza.azhari@gmail.com">
-tasdikraza.azhari@gmail.com
-</a>
-</p>
-
-</div>
-
+    <h2 class="title">Contact Me</h2>
+    <div class="card contact" style="max-width:500px; margin:0 auto; text-align:center;">
+        <p><strong>📱 WhatsApp</strong><br>
+            <a href="https://wa.me/919875253057">+91 98752 53057</a>
+        </p><br>
+        <p><strong>📷 Instagram</strong><br>
+            <a href="https://instagram.com/maddah_e_nabi_">@maddah_e_nabi_</a>
+        </p><br>
+        <p><strong>📧 Email</strong><br>
+            <a href="mailto:tasdikraza.azhari@gmail.com">tasdikraza.azhari@gmail.com</a>
+        </p>
+    </div>
 </section>
 
 <footer>
-
-© 2026 Maddah e Nabi • Editor & Web Developer
-
+    © 2026 Maddah e Nabi • Editor & Web Developer
 </footer>
+
+<script>
+// Particle Effect
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+class Particle {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 3 + 1;
+        this.speedX = Math.random() * 0.5 - 0.25;
+        this.speedY = Math.random() * 0.5 - 0.25;
+    }
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+    }
+    draw() {
+        ctx.fillStyle = 'rgba(255, 215, 0, 0.6)';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+for(let i = 0; i < 150; i++) {
+    particles.push(new Particle());
+}
+
+function animateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for(let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+    }
+    requestAnimationFrame(animateParticles);
+}
+
+animateParticles();
+
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+</script>
 
 </body>
 </html>
